@@ -1,0 +1,14 @@
+[Frustum left right bottom top near_val far_val]
+-500 500 -500 500 500 2000
+[Initial translation]
+0 0 -1200
+[Initial rotation]
+-30 0 0
+[Translation steps(x,y,z)]
+10 10 10
+[Rotation steps(x,y,z)]
+5 5 5
+[Scale factor]
+1.1
+[Animation timer delay(ms)]
+17
