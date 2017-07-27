@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#ifdef DEBUG
+#include <QDebug>
+#endif
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -87,4 +90,18 @@ void MainWindow::on_btnBackgroundColor_clicked()
 void MainWindow::setNameOfAnimateBtn(std::string name)
 {
     ui->btnAnimation->setText(QString::fromStdString(name));
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    int key = event->key();
+    if(key == Qt::Key_Return)
+    {
+        //qDebug() << "Enter";
+        emit equationChanged(ui->txtEquation->text().toStdString());
+    }
+    else if(key == Qt::Key_Q || key == Qt::Key_Escape)
+    {
+        close();
+    }
 }

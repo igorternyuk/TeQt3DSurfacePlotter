@@ -196,22 +196,6 @@ void MyGLWidget::animation()
 
 void MyGLWidget::loadSettings()
 {
-/*
-[Frustum left right bottom top near_val far_val]
--500 500 -500 500 500 2000
-[Initial translation]
-0 0 -1200
-[Initial rotation]
--30 0 0
-[Translation steps(x,y,z)]
-10 10 10
-[Rotation steps(x,y,z)]
-5 5 5
-[Scale factor]
-1.1
-[Animation timer delay(ms)]
-1
-*/
     enum LoadState{FRUSTUM, INIT_ROT, INIT_TRANS, TRANS_STEPS, ROT_STEPS,
                    SCALE_FACTOR, TIMER_DELAY, STOP};
 
@@ -554,9 +538,8 @@ void MyGLWidget::calculatePoints()
     }
     catch(std::exception &ex)
     {
-        //qDebug() << "Parser exception";
-        m_box->setText(QString::fromStdString(ex.what()));
-        m_box->show();
+        QMessageBox qmbx;
+        qmbx.critical(this, "Error", QString::fromStdString(ex.what()));
     }
 }
 

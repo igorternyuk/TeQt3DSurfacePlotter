@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QColorDialog>
+#include <QKeyEvent>
 #include <string>
 
 namespace Ui {
@@ -21,6 +22,8 @@ signals:
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+protected:
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_btnPlot_clicked();
